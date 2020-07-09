@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, StyleSheet, Button, View, TouchableOpacity } from "react-native";
-import ImageDetails from '../components/ImageDetails'
+
 
 const HomeScreen = ({ navigation }) => {
   // console.log(props);
@@ -16,6 +16,9 @@ const HomeScreen = ({ navigation }) => {
       {/* <TouchableOpacity onPress={()=> navigation.navigate('Components')}>
         <Text>Go to list demo</Text>
       </TouchableOpacity> */}
+       <Button title="Go to Counter Screen"
+    onPress={() => navigation.navigate('Counter')} />
+     
     </View>
   );
 };

@@ -1,9 +1,17 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Text, Image,View} from 'react-native';
 
 const ImageDetails = (props) =>{
+    // console.log(props);
 return (
-<Text>{props.title}</Text>
+
+    <View>
+      <Image source={props.imageSrc}/>
+      <Text>{props.title}</Text>
+      <Text>{props.imageScore}</Text>
+    </View>
+    
+
 );
 }
 

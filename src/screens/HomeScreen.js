@@ -18,6 +18,8 @@ const HomeScreen = ({ navigation }) => {
       </TouchableOpacity> */}
        <Button title="Go to Counter Screen"
     onPress={() => navigation.navigate('Counter')} />
+     <Button title="Go to color Screen"
+    onPress={() => navigation.navigate('Color')} />
      
     </View>
   );

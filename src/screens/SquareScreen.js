@@ -4,19 +4,18 @@ import ColorAdjuster from '../components/ColorAdjuster';
 
 const COLOR_INCREMENT =50;
 const reducer= (state, action) =>{
-    switch (action.colorToChange){
-        case 'red':
-            //never going to change the actual value
-            return {...state,
-                red: (state.red + action.addAmount<=255 &&state.red + action.addAmount >=0?state.red + action.addAmount : state.red)};
-        case 'green':
+    switch (action.type){
+        case 'change_red':
+            //one way of writing the condition
+            return (state.red + action.payLoad<=255 &&state.red + action.payLoad >=0)?{...state,red: state.red  + action.payLoad}: state;
+        case 'change_green':
             return {...state,
                 //if gree + addMount is out of the 255-0 range return the existing green value otherwise add the amount
-                green: (state.green + action.addAmount<=255 &&state.green + action.addAmount >=0?state.green + action.addAmount : state.green)};
+                green: (state.green + action.payLoad<=255 &&state.green + action.payLoad >=0?state.green + action.payLoad : state.green)};
            
-        case 'blue':
+        case 'change_blue':
             return {...state,
-                blue: (state.blue + action.addAmount<=255 &&state.blue + action.addAmount >=0?state.blue + action.addAmount : state.blue)};
+                blue: (state.blue + action.payLoad<=255 &&state.blue + action.payLoad >=0?state.blue + action.payLoad : state.blue)};
 
         default:
             return state;
@@ -46,26 +45,26 @@ const SquareScreen = () => {
     return (
         <View>
             <ColorAdjuster
-                onIncrease={() =>  myReducer({colorToChange:'green',addAmount:50})
+                onIncrease={() =>  myReducer({type:'change_green',payLoad:50})
                     // setGreen(changeColor(green, COLOR_INCREMENT))
                 }
-                onDecrease={() =>  myReducer({colorToChange:'green',addAmount:-50})
+                onDecrease={() =>  myReducer({type:'change_green',payLoad:-50})
                     // setGreen(changeColor(green,-COLOR_INCREMENT))
                 }
                 color="Green" />
             <ColorAdjuster
-                onIncrease={() =>  myReducer({colorToChange:'red',addAmount:50})
+                onIncrease={() =>  myReducer({type:'change_red',payLoad:50})
                     // setRed(red + COLOR_INCREMENT)
                 }
-                onDecrease={() =>  myReducer({colorToChange:'red',addAmount:-50})
+                onDecrease={() =>  myReducer({type:'change_red',payLoad:-50})
                     // setRed(red - COLOR_INCREMENT)
                 }
                 color="Red" />
             <ColorAdjuster
-                onIncrease={() =>  myReducer({colorToChange:'blue',addAmount:50})
+                onIncrease={() =>  myReducer({type:'change_blue',payLoad:50})
                     // setBlue(blue + COLOR_INCREMENT)
                 }
-                onDecrease={() =>  myReducer({colorToChange:'blue',addAmount:-50})
+                onDecrease={() =>  myReducer({type:'change_blue',payLoad:-50})
                     // setBlue(blue - COLOR_INCREMENT)
                 }
                 color="Blue" />

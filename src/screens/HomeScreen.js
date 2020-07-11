@@ -11,18 +11,20 @@ const HomeScreen = ({ navigation }) => {
         onPress={() => navigation.navigate('Components')} />
       <Button title="Go List Demo"
         onPress={() => navigation.navigate('List')} />
-        <Button title="Go to Image Demo"
-    onPress={() => navigation.navigate('Image')} />
+      <Button title="Go to Image Demo"
+        onPress={() => navigation.navigate('Image')} />
       {/* <TouchableOpacity onPress={()=> navigation.navigate('Components')}>
         <Text>Go to list demo</Text>
       </TouchableOpacity> */}
-       <Button title="Go to Counter Screen"
-    onPress={() => navigation.navigate('Counter')} />
-     <Button title="Go to color Screen"
-    onPress={() => navigation.navigate('Color')} />
-    <Button title="Go to Square Screen"
-    onPress={() => navigation.navigate('Square')} />
-     
+      <Button title="Go to Counter Screen"
+        onPress={() => navigation.navigate('Counter')} />
+      <Button title="Go to color Screen"
+        onPress={() => navigation.navigate('Color')} />
+      <Button title="Go to Square Screen"
+        onPress={() => navigation.navigate('Square')} />
+        <Button title="Go to Text Screen"
+        onPress={() => navigation.navigate('Text')} />
+
     </View>
   );
 };

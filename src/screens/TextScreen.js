@@ -3,16 +3,19 @@ import { View, StyleSheet, TextInput, Text } from 'react-native';
 
 const TextScreen = () => {
     const [currentValue, setCurrentValue] = useState("");
-    return <View>
-        <Text>Please under your name below:</Text>
+    return (<View>
+        <Text>Please enter your password:</Text>
         <TextInput style={styles.input}
             autoCapitalize="none" autoCorrect={false}
             value={currentValue}
             onChangeText={(newText) => setCurrentValue(newText)}
         />
-
-        <Text>{currentValue}</Text>
+        {
+         (currentValue.length <5) ?<Text>the minimum password length must be more than 5 characters</Text>: null
+        }
+       
     </View>
+    );
 }
 
 const styles = StyleSheet.create({
